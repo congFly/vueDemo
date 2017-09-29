@@ -3,7 +3,6 @@
     <br/>
     <!--  <p v-model="parentMsg">{{parentMsg}}</p>-->
     <input v-model="parentMsg">
-    <button v-on:listenChild="listen">listenChild</button>
     <p>I want to hear what you say:</p>
     <p>{{childSaySomething}}</p>
     <ul class="list-inline">
@@ -26,8 +25,8 @@
     <hr/>
     <child class="child1" :style="{background:activeColor}" v-on:change="changeParentColor"
            :parentMsg="parentMsg"></child>
-    <child class="child2" :style="{background:activeColor1}" v-on:change="changeParentColor"></child>
-    <child class="child3"  v-on:listenChild="listen"></child>
+    <child class="child2" :style="{background:activeColor1}" v-on:change="changeParentColor" v-on:listenChild="listen"></child>
+    <!--<child class="child3" v-on:listenChild="listen"></child>-->
   </div>
 </template>
 <style>
