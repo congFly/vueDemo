@@ -1,9 +1,11 @@
 <template>
   <div class="col-xs-10 col-xs-offset-1 parent" :style="{background:parentColor}">
     <br/>
-  <!--  <p v-model="parentMsg">{{parentMsg}}</p>-->
+    <!--  <p v-model="parentMsg">{{parentMsg}}</p>-->
     <input v-model="parentMsg">
-    <p >I want to hear what you say:</p>
+    <button v-on:listenChild="listen">listenChild</button>
+    <p>I want to hear what you say:</p>
+    <p>{{childSaySomething}}</p>
     <ul class="list-inline">
       <li>对应第一个child</li>
       <li @click="changeChild1Color1"><a href="#" class="btn btn-primary">&nbsp;</a>
@@ -22,13 +24,15 @@
       <li @click="changeChild2Color5"><a href="#" class="btn btn-default">&nbsp;</a></li>
     </ul>
     <hr/>
-    <child class="child1" :style="{background:activeColor}" v-on:change="changeParentColor" :parentMsg="parentMsg"></child>
+    <child class="child1" :style="{background:activeColor}" v-on:change="changeParentColor"
+           :parentMsg="parentMsg"></child>
     <child class="child2" :style="{background:activeColor1}" v-on:change="changeParentColor"></child>
+    <child class="child3"  v-on:listenChild="listen"></child>
   </div>
 </template>
 <style>
   .parent {
-    height: 400px;
+    height: 800px;
     border: 3px solid;
   }
 </style>
@@ -42,9 +46,13 @@
         activeColor: '',
         activeColor1: '',
         parentColor: '',
+        childSaySomething: ''
       }
     },
     methods: {
+      listen(childSaySomething){
+        this.childSaySomething = childSaySomething;
+      },
       changeChild1Color1(){
         this.activeColor = '#337ab7';
       },
@@ -77,6 +85,8 @@
       changeChild2Color5(){
         this.activeColor1 = '#ddd';
       },
+
+
       changeParentColor(childColor){
         this.parentColor = childColor;
       }

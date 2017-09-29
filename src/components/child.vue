@@ -7,8 +7,7 @@
       <li><a href="#" class="btn btn-warning" @click="changeColor4">&nbsp;</a></li>
       <li><a href="#" class="btn btn-default" @click="changeColor5">&nbsp;</a></li>
     </ul>
-    <!--<button class="child_1" @click="tellToParent">tellMyDad</button>-->
-    <input class="input" v-model="childSaySomething" @keyup.enter="tellToParent">
+    <input class="input" @keyup.enter="tellToParent" v-model="childSaySomething">
     <br>
     <br>
     <button @click="getParent">getParentMsg</button>
@@ -29,12 +28,12 @@
     props: [/*'activeColor', 'activeColor1',*/'parentMsg'],
     data(){
       return {
+        childSaySomething: '',
         childColor1: '#337ab7',
         childColor2: '#5bc0de',
         childColor3: '#d9534f',
         childColor4: '#f0ad4e',
         childColor5: '#ddd',
-        childSaySomething: ''
       }
     },
     methods: {
@@ -56,9 +55,8 @@
       getParent: function () {
         console.log(this.parentMsg)
       },
-      tellToParent: function (childSaySomething) {
-          console.log('fcc')
-        this.$emit('listenChild', childSaySomething);
+      tellToParent: function () {
+        this.$emit('listenChild', this.childSaySomething);
       }
     }
   }
