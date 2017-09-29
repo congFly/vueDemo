@@ -1,5 +1,6 @@
 <template>
   <div class="child">
+    <p>子组件</p>
     <ul class="list-inline">
       <li><a href="#" class="btn btn-primary" @click="changeColor1">&nbsp;</a></li>
       <li><a href=" #" class="btn btn-info" @click="changeColor2">&nbsp;</a></li>
@@ -11,6 +12,7 @@
     <br>
     <br>
     <button @click="getParent">getParentMsg</button>
+    <p>xixi:{{parentMessage}}</p>
   </div>
 </template>
 <style>
@@ -25,7 +27,7 @@
 </style>
 <script>
   export default{
-    props: [/*'activeColor', 'activeColor1',*/'parentMsg'],
+    props: [/*'activeColor', 'activeColor1',*/'parentMsg', 'parentMessage'],
     data(){
       return {
         childSaySomething: '',
