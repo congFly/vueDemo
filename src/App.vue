@@ -14,8 +14,21 @@
 </template>
 
 <script>
+  import axios from 'axios'
+  const ERR_OK = 0;
   export default {
-    name: 'app'
+    name: 'app',
+    data(){
+      return {
+        seller: {}
+      }
+    },
+    created(){
+      axios.get('./seller').then(function (response) {
+        response = response.data;
+        this.seller = response.data;
+      })
+    }
   }
 </script>
 
