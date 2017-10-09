@@ -1,30 +1,35 @@
 <template>
   <div class="col-xs-10 parent" :style="{background:parentColor}">
     <br/>
+    <p>父组件</p>
     <!--  <p v-model="parentMsg">{{parentMsg}}</p>-->
     <input v-model="parentMsg">
     <p>I want to hear what you say:</p>
     <p>{{childSaySomething}}</p>
     <ul class="list-inline">
-      <li>对应第一个child</li>
-      <li @click="changeChild1Color1"><a href="#" class="btn btn-primary">&nbsp;</a>
+      <li>第一个child</li>
+      <li @click="changeChild1Color1"><a class="btn btn-primary">&nbsp;</a>
       </li>
-      <li @click="changeChild1Color2"><a href="#" class="btn btn-info">&nbsp;</a></li>
-      <li @click="changeChild1Color3"><a href="#" class="btn btn-danger">&nbsp;</a></li>
-      <li @click="changeChild1Color4"><a href="#" class="btn btn-warning">&nbsp;</a></li>
-      <li @click="changeChild1Color5"><a href="#" class="btn btn-default">&nbsp;</a></li>
+      <li @click="changeChild1Color2"><a class="btn btn-info">&nbsp;</a></li>
+      <li @click="changeChild1Color3"><a class="btn btn-danger">&nbsp;</a></li>
+      <li @click="changeChild1Color4"><a class="btn btn-warning">&nbsp;</a></li>
+      <li @click="changeChild1Color5"><a class="btn btn-default">&nbsp;</a></li>
     </ul>
     <ul class="list-inline">
-      <li>对应第二个child</li>
-      <li @click="changeChild2Color1"><a href="#" class="btn btn-primary">&nbsp;</a></li>
-      <li @click="changeChild2Color2"><a href="#" class="btn btn-info">&nbsp;</a></li>
-      <li @click="changeChild2Color3"><a href="#" class="btn btn-danger">&nbsp;</a></li>
-      <li @click="changeChild2Color4"><a href="#" class="btn btn-warning">&nbsp;</a></li>
-      <li @click="changeChild2Color5"><a href="#" class="btn btn-default">&nbsp;</a></li>
+      <li>第二个child</li>
+      <li @click="changeChild2Color1"><a class="btn btn-primary">&nbsp;</a></li>
+      <li @click="changeChild2Color2"><a class="btn btn-info">&nbsp;</a></li>
+      <li @click="changeChild2Color3"><a class="btn btn-danger">&nbsp;</a></li>
+      <li @click="changeChild2Color4"><a class="btn btn-warning">&nbsp;</a></li>
+      <li @click="changeChild2Color5"><a class="btn btn-default">&nbsp;</a></li>
     </ul>
     <div class="test1">
       <input v-model="message" placeholder="edit">
       <p>Message is :{{message}}</p>
+    </div>
+    <div class="test2">
+      <button @click="counter">增加</button>
+      <p>按钮被点击了{{count}}次</p>
     </div>
     <hr/>
     <child class="child1" :style="{background:activeColor}" v-on:change="changeParentColor" :parentMessage="message"
@@ -49,7 +54,7 @@
 
   .test2 {
     float: left;
-    width:auto;
+    width: 400px;
     height: 400px;
   }
 </style>
@@ -59,6 +64,7 @@
   export default{
     data(){
       return {
+        count: 0,
         parentMsg: 'i am  parent',
         activeColor: '',
         activeColor1: '',
@@ -68,6 +74,9 @@
       }
     },
     methods: {
+      counter(){
+        this.count += 1;
+      },
       listen(childSaySomething){
         this.childSaySomething = childSaySomething;
       },

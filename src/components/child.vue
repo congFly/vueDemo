@@ -2,11 +2,11 @@
   <div class="child">
     <p>子组件</p>
     <ul class="list-inline">
-      <li><a href="#" class="btn btn-primary" @click="changeColor1">&nbsp;</a></li>
-      <li><a href=" #" class="btn btn-info" @click="changeColor2">&nbsp;</a></li>
-      <li><a href="#" class="btn btn-danger" @click="changeColor3">&nbsp;</a></li>
-      <li><a href="#" class="btn btn-warning" @click="changeColor4">&nbsp;</a></li>
-      <li><a href="#" class="btn btn-default" @click="changeColor5">&nbsp;</a></li>
+      <li><a class="btn btn-primary" @click="changeColor1">&nbsp;</a></li>
+      <li><a class="btn btn-info" @click="changeColor2">&nbsp;</a></li>
+      <li><a class="btn btn-danger" @click="changeColor3">&nbsp;</a></li>
+      <li><a class="btn btn-warning" @click="changeColor4">&nbsp;</a></li>
+      <li><a class="btn btn-default" @click="changeColor5">&nbsp;</a></li>
     </ul>
     <input class="input" @keyup.enter="tellToParent" v-model="childSaySomething">
     <br>
