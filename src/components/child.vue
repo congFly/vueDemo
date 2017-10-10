@@ -27,7 +27,7 @@
 </style>
 <script>
   export default{
-    props: [/*'activeColor', 'activeColor1',*/'parentMsg', 'parentMessage'],
+    props: ['parentMsg', 'parentMessage'],
     data(){
       return {
         childSaySomething: '',
