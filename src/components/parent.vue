@@ -27,10 +27,6 @@
       <input v-model="message" placeholder="edit">
       <p>Message is :{{message}}</p>
     </div>
-    <div class="test2">
-      <button @click="counter">增加</button>
-      <p>按钮被点击了{{count}}次</p>
-    </div>
     <hr/>
     <child class="child1" :style="{background:activeColor}" v-on:change="changeParentColor" :parentMessage="message"
            :parentMsg="parentMsg"></child>
@@ -50,12 +46,6 @@
     width: 400px;
     height: 100px;
     background-color: beige;
-  }
-
-  .test2 {
-    float: left;
-    width: 400px;
-    height: 400px;
   }
 </style>
 <script>
