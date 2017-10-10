@@ -64,9 +64,6 @@
       }
     },
     methods: {
-      counter(){
-        this.count += 1;
-      },
       listen(childSaySomething){
         this.childSaySomething = childSaySomething;
       },
